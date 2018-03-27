@@ -1,0 +1,70 @@
+{
+	"name": "Vincent Projet Note",
+	"version": "0.1.0",
+	"authors": [{
+		"name": "Jorge Vincent",
+		"email": "vincent.developper@gmail.com"
+	}],
+	"require": {
+		"upsell/slim-queryparams-routestrategies": "dev-master",
+		"upsell/slim-middlewares": "dev-master",
+		"upsell/http-api-handler": "dev-master",
+		"upsell/db-helper": "dev-master",
+        "upsell/data-helper": "dev-master",
+		"slim/slim": "^3.6",
+		"vlucas/phpdotenv": "^2.4",
+        "doctrine/dbal": "^2.5",
+        "symfony/console": "^3.2",
+		"monolog/monolog": "^1.22",
+		"aws/aws-sdk-php": "^3.29"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url":  "https://git.upsell.fr/upsource/slim-queryparams-routestrategies.git"
+		},
+		{
+			"type": "vcs",
+			"url":  "https://git.upsell.fr/Upsell/slim-middlewares.git"
+		},
+		{
+			"type": "vcs",
+			"url":  "https://git.upsell.fr/Upsell/http-api-handler.git"
+		},
+		{
+			"type": "vcs",
+			"url":  "https://git.upsell.fr/Upsell/db-helper.git"
+		},
+		{
+			"type": "vcs",
+			"url":  "https://git.upsell.fr/Upsell/data-helper.git"
+		}
+	],
+	"autoload" : {
+		"psr-4" : {
+			"App\\" : "app/src"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"Test\\App\\" : "tests"
+		}
+	},
+	"scripts" : {
+		"test:phpunit": "./vendor/bin/phpunit -c phpunit.xml",
+		"test:phpmd": "./vendor/bin/phpmd app html phpmd.xml > ./build/phpmd.html",
+		"test:phpcs": "./vendor/bin/phpcs app --standard=PSR2 --colors -n",
+		"fix:phpcbf": "./vendor/bin/phpcbf app --standard=PSR2",
+		"stats:pdepend": "./vendor/bin/pdepend --summary-xml=./build/summary.xml --jdepend-chart=./build/jdepend.svg --overview-pyramid=./build/pyramid.svg app",
+		"stats:phploc": "./vendor/bin/phploc app",
+		"doc": "spectacle swagger.yaml --target-dir ./doc"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^5.6",
+		"phpmd/phpmd": "^2.5",
+		"squizlabs/php_codesniffer": "^2.7",
+		"pdepend/pdepend": "^2.3",
+		"phploc/phploc": "^3.0",
+		"phpro/grumphp": "^0.12.0"
+	}
+}
